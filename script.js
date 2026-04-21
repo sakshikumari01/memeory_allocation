@@ -7,7 +7,7 @@ const examples = {
 };
 
 let currentStats = {};
-
+//switchtab function
 function switchTab(ev, tabName) {
     document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
     document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
