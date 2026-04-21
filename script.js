@@ -70,7 +70,7 @@ function runAlgorithm(algo) {
 function showGraphs() {
     alert("Graph function here (Chart.js already included)");
 }
-
+//calculate segmentation
 function calculateSegmentation() {
     const base = parseInt(document.getElementById('baseInput').value);
     const limit = parseInt(document.getElementById('limitInput').value);
