@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🧠 Dynamic Memory Management Visualizer</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+</head>
+
+<body>
+
+    <div class="navbar">
+        <div class="navbar-content">
+            <h1>🧠 Dynamic Memory Management Visualizer </h1>
+            <div class="nav-tabs">
+                <button class="nav-btn active" onclick="switchTab(event,'paging')">📄 Paging</button>
+                <button class="nav-btn" onclick="switchTab(event,'segmentation')">🔐 Segmentation</button>
+                <button class="nav-btn" onclick="switchTab(event,'virtual')">🧮 Virtual Memory</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div id="statusMessage" class="status-message"></div>
+
+        <!-- PAGING TAB -->
+        <div id="paging" class="tab-content active">
+
+            <div class="section">
+                <h2>📚 PAGING Definition</h2>
+                <div class="definition-box">
+                    <strong>Paging:</strong> Memory management technique dividing physical RAM into fixed-size FRAMES and logical memory into PAGES.
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>📥 Input Parameters</h2>
+
+                <input type="text" id="pageInput" placeholder="Page Reference String">
+                <input type="number" id="framesInput" value="3">
+                <input type="range" id="speedInput" min="50" max="1000" value="300">
+
+                <button class="algo-btn fifo-btn" onclick="runAlgorithm('FIFO')">FIFO</button>
+                <button class="algo-btn lru-btn" onclick="runAlgorithm('LRU')">LRU</button>
+                <button class="algo-btn optimal-btn" onclick="runAlgorithm('OPTIMAL')">OPTIMAL</button>
+            </div>
+
+            <canvas id="animationCanvas" width="1200" height="150"></canvas>
+            <div id="output"></div>
+
+            <button class="graph-btn" onclick="showGraphs()">Show Graphs</button>
+
+            <div id="graphsSection" style="display:none;">
+                <canvas id="faultChart"></canvas>
+                <canvas id="ratioChart"></canvas>
+            </div>
+
+        </div>
+
+        <!-- SEGMENTATION TAB -->
+        <div id="segmentation" class="tab-content">
+
+            <input type="number" id="baseInput">
+            <input type="number" id="limitInput">
+            <input type="number" id="offsetInput">
+
+            <button onclick="calculateSegmentation()">Calculate</button>
+
+            <div id="segWrap">
+                <canvas id="segmentationCanvas"></canvas>
+                <div id="segmentationResult"></div>
+            </div>
+
+        </div>
+
+        <!-- VIRTUAL MEMORY TAB -->
+        <div id="virtual" class="tab-content">
+            <div class="section">
+                <h2>Virtual Memory Explanation</h2>
+
+                <div class="definition-box">
+                    Virtual Memory allows programs to use more memory than RAM using disk storage.
+                </div>
+
+                <div class="definition-box">
+                    Page Table maps Virtual Address → Physical Address.
+                </div>
+
+                <div class="definition-box">
+                    Page Fault occurs when required page is not in RAM.
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
