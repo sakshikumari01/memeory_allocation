@@ -66,7 +66,7 @@ function runAlgorithm(algo) {
     currentStats[algo] = result;
     alert(algo + " executed");
 }
-
+//show graphs
 function showGraphs() {
     alert("Graph function here (Chart.js already included)");
 }
